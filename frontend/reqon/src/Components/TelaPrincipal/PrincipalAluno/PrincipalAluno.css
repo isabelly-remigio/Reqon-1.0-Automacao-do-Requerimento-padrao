@@ -1,149 +1,151 @@
-/* Container principal */
 .principal-aluno-container {
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 40px auto;
     padding: 40px;
-    background-color: rgba(252, 252, 252, 0.2);    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    height: auto;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .principal-aluno-container h2 {
     text-align: center;
-    color: #ffffff; /* Cor branca para o título */
-    font-size: 32px;
-    margin-bottom: 30px;
+    color: #222;
+    font-size: 28px;
+    margin-bottom: 32px;
 }
 
-/* Estilos para o formulário */
-.principal-aluno-container form {
+.principal-form-group {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    margin-bottom: 24px;
 }
 
-/* Labels dos campos */
 .principal-aluno-container label {
-    font-weight: bold;
+    font-weight: 600;
     color: #333;
-    font-size: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
-/* Estilos dos inputs, select, textarea e button */
-.principal-aluno-container select,
-.principal-aluno-container input[type="file"],
-.principal-aluno-container textarea,
-.principal-aluno-container button {
-    padding: 20px;
-    border: 1px solid #838383;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #f1ffffdc;
-}
-
-/* Campos de seleção e textarea */
 .principal-aluno-container select,
 .principal-aluno-container textarea {
-    width: 100%;
-    background-color: #f1ffffdc;
-}
-
-/* Campo de arquivo */
-.input-anexo label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 15px;
-    border: 2px dashed #ddd;
+    padding: 14px;
+    border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 16px;
-    color: #333;
-    background-color: #f1ffffdc;
+    background-color: #f9f9f9;
+}
+
+.input-anexo label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 14px;
+    border: 2px dashed #bbb;
+    border-radius: 8px;
+    color: #444;
+    background-color: #fafafa;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
-
+.input-anexo label:hover {
+    background-color: #f0f0f0;
+}
 
 .input-anexo input[type="file"] {
     display: none;
 }
 
-/* Lista de arquivos adicionados */
 .principal-file-list {
-    margin-top: 10px;
-}
-
-.principal-file-list ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    background-color: #f6f6f6;
+    padding: 12px;
+    border-radius: 8px;
     font-size: 14px;
+    color: #555;
 }
 
-/* Estilo da textarea */
 .principal-aluno-container textarea {
-    height: 150px;
+    height: 120px;
     resize: vertical;
 }
 
-/* Botão */
-.principal-aluno-container button {
-    background-color: white;
-    color: #2685bf; /* Cor azul para o botão */
-    padding: 10px 16px;
+.principal-submit-button {
+    background-color: #2685bf;
+    color: white;
+    padding: 14px;
     font-size: 16px;
     border: none;
-    border-radius: 10px;
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 255, 0.1);
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+.principal-submit-button:hover {
+    background-color: #1f6f9e;
+}
 
-/* Estilos para mensagens */
-.principal-aluno-container p {
-    color: #d9534f; /* Vermelho para mensagens de erro */
+.principal-message {
+    margin-top: 20px;
+    color: #d9534f; 
     text-align: center;
     font-weight: bold;
 }
 
-.principal-aluno-container p.success {
-    color: #5bc0de; /* Azul para mensagens de sucesso */
+.principal-aluno-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 120px; /* espaçamento do topo */
+  padding: 30px;
+  background-color: #87cbf6; /* azul sólido */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: white; /* texto branco para contraste */
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2685bf; /* Cor azul para a navbar */
-    color: white;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;
-    z-index: 10;
+
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
 }
 
-.navbar-logo img {
-    height: 40px;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.navbar-links a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white; /* Cor branca para os links */
-    font-size: 16px;
+label {
+  font-weight: bold;
+  color: #34495e;
 }
 
-.navbar-links a:hover {
-    text-decoration: underline;
+input[type="text"],
+input[type="email"],
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
 }
 
-.navbar-links a svg {
-    vertical-align: middle;
-    margin-right: 5px;
+input[type="file"] {
+  padding: 6px;
+}
+
+button {
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
 }

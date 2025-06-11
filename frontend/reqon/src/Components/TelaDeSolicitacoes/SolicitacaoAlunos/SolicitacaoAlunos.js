@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
-import Card from "../../Card/Card";
 import './SolicitacaoAluno.css';
 
 const SolicitacaoAluno = () => {
@@ -29,6 +28,20 @@ const SolicitacaoAluno = () => {
     fetchSolicitacoes();
   }, []);
 
+  const getStatusClass = (status) => {
+  switch (status.toLowerCase()) {
+    case "analisando":
+      return "status-analisando";
+    case "aceito":
+      return "status-aceito";
+    case "indeferido":
+      return "status-indeferido";
+    default:
+      return "status-padrao";
+  }
+};
+
+
   return (
     <div>
       <nav className="navbar">
@@ -49,16 +62,29 @@ const SolicitacaoAluno = () => {
       <div className="solicitacoes-container">
         <h2>Minhas Solicitações</h2>
         {solicitacoes.length > 0 ? (
-          <div className="solicitacoes-grid">
-            {solicitacoes.map((solicitacao) => (
-              <Card
-                key={solicitacao.id}
-                data={new Date(solicitacao.createdAt).toLocaleDateString("pt-BR")}
-                titulo={solicitacao.titulo}
-                status={solicitacao.status}
-              />
-            ))}
-          </div>
+          <table className="solicitacoes-table">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Solicitação</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {solicitacoes.map((solicitacao) => (
+                <tr key={solicitacao.id}>
+                  <td>{new Date(solicitacao.createdAt).toLocaleDateString("pt-BR")}</td>
+                  <td>{solicitacao.titulo}</td>
+                  <td>
+  <span className={`status ${getStatusClass(solicitacao.status)}`}>
+    {solicitacao.status}
+  </span>
+</td>
+
+                </tr>
+              ))}
+            </tbody>
+          </table>
         ) : (
           <p>Nenhuma solicitação encontrada.</p>
         )}

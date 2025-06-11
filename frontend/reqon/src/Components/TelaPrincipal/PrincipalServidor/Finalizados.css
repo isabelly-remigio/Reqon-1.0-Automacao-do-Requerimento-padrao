@@ -1,0 +1,57 @@
+
+/* Container principal */
+.finalizados-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.finalizados-container h2 {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* Tabela */
+.finalizados-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.finalizados-table th,
+.finalizados-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.finalizados-table thead {
+  background-color: #2685bf;
+  color: white;
+}
+
+/* Status */
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: white;
+}
+
+.status-aceito {
+  background-color: green;
+  color: white;
+}
+
+.status-indeferido {
+  background-color: red;
+  color: white;
+}
+
+.status-padrao {
+  background-color: gray;
+  color: white;
+}

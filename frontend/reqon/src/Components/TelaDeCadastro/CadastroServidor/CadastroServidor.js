@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import './CadastroServidor.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +8,8 @@ function CadastroServidor() {
         matricula: "",
         senha: "",
         confirmarSenha: "",
-        email:""
+        email:"",
+        confirmarEmail: ""
     });
 
     const [mensagem, setMensagem] = useState("");
@@ -116,9 +116,17 @@ function CadastroServidor() {
                                         required
                                     />
                                 </label>
-                            </div>
-                            <div className="footer-cadastro">
-                                <button type="submit" className="button-cadastro">Cadastrar</button>
+                                <label className="label-cadastro">
+                                Confirmar Email:
+                                <input
+                                    type="text"
+                                    name="confirmarEmail"
+                                    placeholder="Confirme o email docente"
+                                    className="input-cadastro"
+                                    value={formData.confirmarEmail}
+                                    onChange={handleChange}
+                                />
+                            </label>
                             </div>
                             <div className="checkbox-cadastro">
                                 <label>
@@ -126,10 +134,15 @@ function CadastroServidor() {
                                     Concordo com os Termos de Uso e a Política de Privacidade
                                 </label>
                             </div>
+                            <div className="footer-cadastro">
+                                
+                                <button type="submit" className="button-cadastro">Cadastrar</button>
+                            </div>
+
                             <p className="link-cadastro">
                                 Já tem cadastro?{" "}
                                 <span onClick={() => navigate('/')} className="link-login">
-                                    Login
+                                    Faça login
                                 </span>
                             </p>
                             {mensagem && <p className="mensagem-cadastro">{mensagem}</p>}

@@ -1,193 +1,152 @@
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 75px;
-  background-color: #2685bf;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  z-index: 10;
-}
-
-.navbar .logo img {
-  width: 150px;
-  height: auto;
-  object-fit: contain;
-}
-
+/* Container principal */
 .container-cadastro {
   display: flex;
   justify-content: center;
-  align-items: flex-start; 
-  height: calc(100vh - 75px); 
-  margin-top: 75px; 
+  align-items: flex-start;
+  height: calc(100vh - 75px);
+  margin-top: 75px;
+  padding: 20px;
 }
 
+/* Card */
 .card-cadastro {
-  background-color: rgba(252, 252, 252, 0.2);
+  background-color: #87CBF6;
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 100px;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
   width: 800px;
   max-width: 100%;
-  box-sizing: border-box; 
-  overflow: auto; 
+  box-sizing: border-box;
+  overflow: auto;
 }
 
+/* Cabeçalho */
 .header-cadastro {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
-  color: rgb(255, 255, 255);
+  color: #000;
 }
 
+/* Formulário */
 .form-cadastro {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* Grid com campos */
 .grid-cadastro {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
 
+/* Labels e Inputs */
 .label-cadastro {
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.8);
+  color: #333;
 }
 
 .input-cadastro {
-  padding: 8px;
+  width: 100%;
+  padding: 10px;
   font-size: 14px;
-  background-color: rgba(255, 255, 255, 0.808);
-  color: rgb(110, 73, 73);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
   border-radius: 5px;
+  transition: border 0.2s;
 }
 
+.input-cadastro:focus {
+  border-color: #2685bf;
+  outline: none;
+}
+
+/* Botão */
 .footer-cadastro {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .button-cadastro {
-  background-color: white;
-  color: #2685bf;
-  padding: 10px 16px;
+  background-color: #2685bf;
+  color: white;
+  padding: 10px 20px;
   font-size: 16px;
   border: none;
   border-radius: 10px;
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 255, 0.1);
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
+.button-cadastro:hover {
+  background-color: #1c6494;
+}
+
+/* Checkbox */
 .checkbox-cadastro {
   text-align: center;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  color: #555;
 }
 
 .checkbox-cadastro input {
   margin-right: 5px;
 }
 
+/* Link de login */
 .link-cadastro {
   text-align: center;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #fff;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
 }
 
 .link-login {
-  color: #2685bf;
+  color: #404b52;
   cursor: pointer;
-  text-decoration: none;
-  font-weight: 550;
+  font-weight: 600;
 }
 
-/* Mensagens */
+.link-login :hover {
+  text-decoration: underline;
+}
+
+/* Mensagem de erro */
 .mensagem-cadastro {
   color: red;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-/* Media Queries - Ajustes para telas menores */
-
-/* Para telas menores que 768px */
+/* Responsividade */
 @media (max-width: 768px) {
   .navbar {
-    height: 60px; /* Menor altura para a navbar em dispositivos móveis */
+    height: 60px;
   }
 
   .container-cadastro {
-    margin-top: 60px; /* Ajusta a margem para a navbar fixa */
+    margin-top: 60px;
+    padding: 10px;
   }
 
   .card-cadastro {
-    width: 90%;
     padding: 20px;
+    width: 100%;
   }
 
   .grid-cadastro {
-    grid-template-columns: 1fr; /* Colocar os campos em uma coluna */
-  }
-
-  .input-cadastro {
-    font-size: 12px; /* Menor tamanho de fonte para inputs */
-  }
-
-  .button-cadastro {
-    font-size: 14px;
-    padding: 8px 12px; /* Ajustar o botão */
-  }
-}
-
-/* Para telas muito pequenas (como celulares menores) */
-@media (max-width: 480px) {
-  .navbar {
-    height: 50px; /* Navbar ainda menor */
-  }
-
-  .container-cadastro {
-    margin-top: 50px; /* Ajuste para telas ainda menores */
-  }
-
-  .card-cadastro {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .header-cadastro {
-    font-size: 24px; /* Fontes menores para títulos */
+    grid-template-columns: 1fr;
   }
 
   .input-cadastro {
     font-size: 14px;
-  }
-
-  .footer-cadastro {
-    margin-top: 15px;
-  }
-
-  .checkbox-cadastro {
-    font-size: 14px;
-  }
-
-  .link-cadastro {
-    font-size: 0.8rem;
-  }
-
-  .button-cadastro {
-    padding: 8px 16px;
   }
 }

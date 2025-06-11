@@ -1,53 +1,51 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2685bf;
-    color: white;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;
-    z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2685bf;
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo img {
-    height: 40px;
+  height: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-links a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white; 
-    font-size: 16px;
+  margin-left: 20px;
+  text-decoration: none;
+  color: white; 
+  font-size: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .navbar-links a svg {
-    vertical-align: middle;
-    margin-right: 5px;
+  margin-left: 5px;
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        justify-content: space-between;
-    }
-
-    .navbar-links {
-        display: none; 
-    }
-
-    .navbar-toggle {
-        display: block; 
-        cursor: pointer;
-    }
+  .navbar-links a {
+    font-size: 14px;
+    margin-left: 10px;
+  }
 }
-
 
 .solicitacoes-container {
     padding: 20px;
@@ -56,18 +54,12 @@
 }
 
 .solicitacoes-container h2 {
+    margin-top: 100px;
     text-align: center;
-    color: #fff;
+    color: #000000;
     margin-bottom: 20px;
 }
 
-
-.solicitacoes-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    justify-content: center;
-}
 
 @media (max-width: 1200px) {
     .solicitacoes-grid {
@@ -102,10 +94,48 @@
 }
 
 
-.solicitacao-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-    text-align: center;
+
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: white;
 }
+
+.status-analisando {
+  background-color: rgb(243, 243, 5);
+  color: black;
+}
+
+status-analisando {
+    background-color: rgb(243, 243, 5);
+    color: black;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .status-aceito {
+    background-color: green;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .status-indeferido {
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 2%;
+  }
+
+  .solicitacoes-table th{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; 
+    background-color: #2685bf;
+ }
+  
+
+ 

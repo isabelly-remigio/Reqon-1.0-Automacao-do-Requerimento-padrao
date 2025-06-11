@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaUserCircle, FaSignOutAlt } from "react-icons/fa";
-import "./PrincipalServidor.css";
+import "./Finalizados.css";
 
 const Finalizados = () => {
   const [finalizados, setFinalizados] = useState([]);
@@ -10,12 +10,25 @@ const Finalizados = () => {
       .then((res) => res.json())
       .then((data) => {
         const requerimentosFinalizados = data.filter(
-          (req) => req.status.trim().toLowerCase() === "aceito" || req.status.trim().toLowerCase() === "indeferido"
+          (req) =>
+            req.status.trim().toLowerCase() === "aceito" ||
+            req.status.trim().toLowerCase() === "indeferido"
         );
         setFinalizados(requerimentosFinalizados);
       })
       .catch((error) => console.error("Erro ao buscar requerimentos:", error));
   }, []);
+
+  const getStatusClass = (status) => {
+    switch (status.toLowerCase()) {
+      case "aceito":
+        return "status-aceito";
+      case "indeferido":
+        return "status-indeferido";
+      default:
+        return "status-padrao";
+    }
+  };
 
   return (
     <div>
@@ -24,43 +37,40 @@ const Finalizados = () => {
           <img src="/logo-branca.png" alt="Logo" />
         </div>
         <div className="navbar-links">
-        <div className="navbar-links">
-        <a href="/TelaPrincipal/PrincipalServidor">Requerimentos Concluídos</a>
-        <a href="/TelaPrincipal/PrincipalServidor/PerfilS">
+          <a href="/TelaPrincipal/PrincipalServidor">Requerimentos em aberto</a>
+          <a href="/TelaPrincipal/PrincipalServidor/PerfilS">
             <FaUserCircle size={24} title="Perfil" />
           </a>
           <a href="/">
             <FaSignOutAlt size={24} title="Sair" />
           </a>
         </div>
-        </div>
       </nav>
-      <div className="p-4">
-        <h1 className="nome">Requerimentos Finalizados</h1>
+
+      <div className="solicitacoes-container">
+        <h2>Requerimentos Finalizados</h2>
         {finalizados.length === 0 ? (
           <p>Nenhum requerimento finalizado.</p>
         ) : (
-          <table className="w-full border-collapse border border-gray-300">
+          <table className="solicitacoes-table">
             <thead>
-              <tr className="bg-gray-200">
-                <th className="border border-gray-300 px-4 py-2">Matrícula</th>
-                <th className="border border-gray-300 px-4 py-2">Tipo</th>
-                <th className="border border-gray-300 px-4 py-2">Data</th>
-                <th className="border border-gray-300 px-4 py-2">Status</th>
+              <tr>
+                <th>Matrícula</th>
+                <th>Tipo</th>
+                <th>Data</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
               {finalizados.map((req) => (
-                <tr key={req.id} className="text-center">
-                  <td className="border border-gray-300 px-4 py-2">{req.aluno.matricula}</td>
-                  <td className="border border-gray-300 px-4 py-2">{req.titulo}</td>
-                  <td className="border border-gray-300 px-4 py-2">{new Date(req.createdAt).toLocaleDateString("pt-BR")}</td>
-                  <td
-                    className={`border px-4 py-2 ${
-                      req.status.toLowerCase() === "aceito" ? "bg-green-500 text-white" : "bg-red-500 text-white"
-                    }`}
-                  >
-                    {req.status.charAt(0).toUpperCase() + req.status.slice(1)}
+                <tr key={req.id}>
+                  <td>{req.aluno.matricula}</td>
+                  <td>{req.titulo}</td>
+                  <td>{new Date(req.createdAt).toLocaleDateString("pt-BR")}</td>
+                  <td>
+                    <span className={`status ${getStatusClass(req.status)}`}>
+                      {req.status.charAt(0).toUpperCase() + req.status.slice(1)}
+                    </span>
                   </td>
                 </tr>
               ))}

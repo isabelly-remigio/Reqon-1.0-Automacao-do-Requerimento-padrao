@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import './CadastroAluno.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './CadastroAluno.css';
 
 function CadastroAluno() {
     const [formData, setFormData] = useState({
@@ -18,6 +18,7 @@ function CadastroAluno() {
         turno: "",
         orgaoExpedidor: "",
         email: "",
+        confirmarEmail: ""
     });
 
     const [mensagem, setMensagem] = useState("");
@@ -109,6 +110,7 @@ function CadastroAluno() {
                                     type="text"
                                     name="cpf"
                                     placeholder="Digite seu CPF"
+                                    maxLength="11"
                                     className="input-cadastro"
                                     value={formData.cpf}
                                     onChange={handleChange}
@@ -120,6 +122,7 @@ function CadastroAluno() {
                                 <input
                                     type="text"
                                     name="rg"
+                                    maxLength="9"
                                     placeholder="Digite seu RG"
                                     className="input-cadastro"
                                     value={formData.rg}
@@ -164,16 +167,23 @@ function CadastroAluno() {
                             </label>
                             <label className="label-cadastro">
                                 Curso:
-                                <input
-                                    type="text"
+                                <select
                                     name="curso"
-                                    placeholder="Digite seu curso"
                                     className="input-cadastro"
                                     value={formData.curso}
                                     onChange={handleChange}
                                     required
-                                />
+                                >
+                                    <option value="">Selecione o curso</option>
+                                    <option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
+                                    <option value="Informática para Internet">Informática para Internet</option>
+                                    <option value="Qualidade">Qualidade</option>
+                                    <option value="Comércio e Gestão de Negócios">Comércio e Gestão de Negócios</option>
+                                    <option value="Administração">Administração</option>
+                                    <option value="Técnico Integrado em Desenvolvimento de Sistemas">Técnico Integrado em Desenvolvimento de Sistemas</option>
+                                </select>
                             </label>
+
                             <label className="label-cadastro">
                                 Período:
                                 <input
@@ -188,15 +198,19 @@ function CadastroAluno() {
                             </label>
                             <label className="label-cadastro">
                                 Turno:
-                                <input
-                                    type="text"
+                                <select
                                     name="turno"
-                                    placeholder="Digite seu turno"
                                     className="input-cadastro"
                                     value={formData.turno}
                                     onChange={handleChange}
-                                />
+                                >
+                                    <option value="">Selecione o turno</option>
+                                    <option value="manhã">Manhã</option>
+                                    <option value="tarde">Tarde</option>
+                                    <option value="noite">Noite</option>
+                                </select>
                             </label>
+
                             <label className="label-cadastro">
                                 Órgão Expedidor:
                                 <input
@@ -219,9 +233,18 @@ function CadastroAluno() {
                                     onChange={handleChange}
                                 />
                             </label>
-                        </div>
-                        <div className="footer-cadastro">
-                            <button type="submit" className="button-cadastro">Cadastrar</button>
+                            <label className="label-cadastro">
+                                Confirmar Email:
+                                <input
+                                    type="text"
+                                    name="confirmarEmail"
+                                    placeholder="Confirme o email discente"
+                                    className="input-cadastro"
+                                    value={formData.confirmarEmail}
+                                    onChange={handleChange}
+                                />
+                            </label>
+
                         </div>
                         <div className="checkbox-cadastro">
                             <label>
@@ -229,10 +252,14 @@ function CadastroAluno() {
                                 Concordo com os Termos de Uso e a Política de Privacidade
                             </label>
                         </div>
+                        <div className="footer-cadastro">
+                            <button type="submit" className="button-cadastro">Cadastrar</button>
+                        </div>
+                        
                         <p className="link-cadastro">
                             Já tem cadastro?{" "}
                             <span onClick={() => navigate('/')} className="link-login">
-                                Login
+                                Faça login
                             </span>
                         </p>
                         {mensagem && <p className="mensagem-cadastro">{mensagem}</p>}

@@ -117,6 +117,10 @@
 
 }
 
+.link-login:hover {
+  text-decoration: underline;
+}
+
 
 /* Responsividade */
 
@@ -175,6 +179,7 @@
     font-size: 24px;
   }
 
+}
   .input-cadastro {
     font-size: 14px;
   }
@@ -194,4 +199,3 @@
   .button-cadastro {
     padding: 8px 16px;
   }
-}

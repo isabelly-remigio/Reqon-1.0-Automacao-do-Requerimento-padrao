@@ -18,6 +18,14 @@ function Perfil() {
     return <p>Carregando...</p>;
   }
 
+  function formatarData(dataString) {
+  const data = new Date(dataString);
+  return data.toLocaleDateString("pt-BR", {
+    timeZone: "UTC"
+  });
+}
+
+
   return (
     <div className="perfil-container">
       <nav className="navbar">
@@ -36,22 +44,37 @@ function Perfil() {
       </nav>
 
       <div className="perfil-card">
-        <h2>Perfil do Aluno</h2>
-        <div className="perfil-info">
-          <p><strong>Nome:</strong> {aluno.nomeCompleto}</p>
-          <p><strong>Matrícula:</strong> {aluno.matricula}</p>
-          <p><strong>Data de Nascimento:</strong> {aluno.dataNascimento}</p>
-          <p><strong>CPF:</strong> {aluno.cpf}</p>
-          <p><strong>RG:</strong> {aluno.rg}</p>
-          <p><strong>Órgão Expedidor:</strong> {aluno.orgaoExpedidor}</p>
-          <p><strong>Telefone:</strong> {aluno.telefone}</p>
-          <p><strong>Email:</strong> {aluno.email}</p>
-          <p><strong>Curso:</strong> {aluno.curso}</p>
-          <p><strong>Período:</strong> {aluno.periodo}</p>
-          <p><strong>Turno:</strong> {aluno.turno}</p>
-        </div>
-        <Link to={`/editar-perfil/${id}`} className="perfil-editar-btn">Editar Perfil</Link>
-      </div>
+  <h2>Perfil do Aluno</h2>
+  <div className="perfil-info">
+
+    <div className="perfil-section">
+      <h3>Dados Pessoais</h3>
+      <p><strong>Nome:</strong> {aluno.nomeCompleto}</p>
+      <p><strong>Data de Nascimento:</strong> {formatarData(aluno.dataNascimento)}</p>
+      <p><strong>CPF:</strong> {aluno.cpf}</p>
+      <p><strong>RG:</strong> {aluno.rg}</p>
+      <p><strong>Órgão Expedidor:</strong> {aluno.orgaoExpedidor}</p>
+    </div>
+
+    <div className="perfil-section">
+      <h3>Contato</h3>
+      <p><strong>Telefone:</strong> {aluno.telefone}</p>
+      <p><strong>Email:</strong> {aluno.email}</p>
+    </div>
+
+    <div className="perfil-section">
+      <h3>Acadêmico</h3>
+      <p><strong>Matrícula:</strong> {aluno.matricula}</p>
+      <p><strong>Curso:</strong> {aluno.curso}</p>
+      <p><strong>Período:</strong> {aluno.periodo}</p>
+      <p><strong>Turno:</strong> {aluno.turno}</p>
+    </div>
+
+  </div>
+
+  <Link to={`/editar-perfil/${id}`} className="perfil-editar-btn">Editar Perfil</Link>
+</div>
+
     </div>
   );
 }
