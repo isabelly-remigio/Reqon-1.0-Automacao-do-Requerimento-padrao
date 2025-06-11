@@ -21,6 +21,8 @@ import { RecuperarSenhaModule } from './recuperar-senha/recuperar-senha.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
+      password: '',
+      database: '',
       entities: [Aluno, Servidor, Requerimento, Usuario],  
       synchronize: true, 
     }),
