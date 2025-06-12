@@ -32,6 +32,7 @@ export default function RecuperarSenha() {
   };
 
   return (
+    <div className="recuperar-page">
     <div className="senha-container">
       <h2>Recuperar Senha</h2>
       <input
@@ -51,6 +52,7 @@ export default function RecuperarSenha() {
           <a href={linkRecuperacao} target="_blank" rel="noopener noreferrer">Clique aqui para redefinir a senha</a>
         </div>
       )}
+    </div>
     </div>
   );
 }

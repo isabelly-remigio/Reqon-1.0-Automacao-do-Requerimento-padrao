@@ -15,6 +15,7 @@ import RedefinirSenha from "./Components/RecuperarSenha/RedefinirSenha";
 import Finalizados from "./Components/TelaPrincipal/PrincipalServidor/FInalizados";
 import PerfilServidor from "./Components/TelaPrincipal/PrincipalServidor/Perfil/PerfilS";
 import EditarPerfilServidor from "./Components/TelaPrincipal/PrincipalServidor/Perfil/Editar";
+import Anexos from "./Components/Anexos/Anexo";
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
       <Route path="/TelaPrincipal/Servidor/:id" element={<DetalhesSolicitacao />} />
       <Route path="/TelaPrincipal/PrincipalServidor/PerfilS" element={<PerfilServidor />} />
       <Route path="/TelaPrincipal/PrincipalServidor/PerfilS/Editar" element={<EditarPerfilServidor />} />
+      <Route path="/anexos" element={<Anexos />} />
       <Route path="/perfil/:id" element={<Perfil />} />
         <Route path="/editar-perfil/:id" element={<EditarPerfil />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />

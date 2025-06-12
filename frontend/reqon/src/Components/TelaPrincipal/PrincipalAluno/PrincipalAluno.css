@@ -8,6 +8,7 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+
 .principal-aluno-container h2 {
     text-align: center;
     color: #222;
@@ -136,7 +137,7 @@ input[type="file"] {
 }
 
 button {
-  padding: 12px;
+  padding: 12px ;
   background-color: #3498db;
   color: white;
   border: none;
@@ -148,4 +149,14 @@ button {
 
 button:hover {
   background-color: #2980b9;
+}
+
+.link-anexos {
+  color: black;
+  text-decoration: none; 
+  cursor: pointer;
+}
+
+.link-anexos:hover {
+  text-decoration: underline; 
 }
